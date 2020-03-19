@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
+const path = require("path");
 
-module.exports = new Sequelize("questionboxdb", "root", "narayan123", {
-  host: "localhost",
-  port: "3306",
-  dialect: "mysql"
+module.exports = new Sequelize({
+  dialect : 'sqlite',
+  storage : path.resolve(__dirname, 'db.sqlite3')
 });
