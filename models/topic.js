@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database");
 
-const Topics = db.define("questionbox_topic", {
+const Topic = db.define("questionbox_topic", {
   name: {
     type: Sequelize.STRING
   },
@@ -13,4 +13,4 @@ const Topics = db.define("questionbox_topic", {
   timestamps: false,
 });
 
-module.exports = Topics;
+module.exports = Topic;
