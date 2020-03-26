@@ -3,7 +3,7 @@ const db = require("../config/database"),
 	Users = require("./user"),
 	Topic = require("./topic");
 	
-const Question = db.define("questionbox_answers", {
+const Question = db.define("questionbox_questions", {
 	id:{
 		type: Sequelize.INTEGER,
 		primaryKey: true
@@ -13,15 +13,22 @@ const Question = db.define("questionbox_answers", {
 	},
 	views: {
 		type: Sequelize.INTEGER,
+		defaultValue : 0
+	},
+	upvotes: {
+		type: Sequelize.INTEGER,
+		defaultValue : 0
+
 	}
 },{
   timestamps: false,
 });
 
 Users.hasOne(Question, {
-	foreignKey: 'askedby_id',
+	foreignKey: 'asked_by_id',
 	onDelete: 'CASCADE'
 });
+
 
 Topic.hasOne(Question, {
 	foreignKey: 'topic_id',
